@@ -1,5 +1,7 @@
 FROM node:10-alpine
 
+ARG WDIR=/usr/local/app
+
 RUN apk --no-cache add \
       bash \
       g++ \
@@ -13,12 +15,13 @@ RUN apk --no-cache add \
 
 RUN apk add --no-cache --virtual .build-deps gcc zlib-dev libc-dev bsd-compat-headers py-setuptools bash
 
-RUN mkdir -p /usr/local/app
+RUN mkdir -p ${WDIR}
 
-WORKDIR /usr/local/app
+WORKDIR ${WDIR}
 
-VOLUME /usr/local/app
+VOLUME ${WDIR}
 
-RUN npm install 
+ENV WDIR=${WDIR}
+ENV JS_FILE consumer.js
 
-CMD [ "node", "producer.js" ]
+CMD ["bash", "-c", "${WDIR}/docker-entrypoint.sh ${WDIR} ${JS_FILE}"]

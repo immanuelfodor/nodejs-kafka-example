@@ -37,7 +37,8 @@ To remove any containers or images, here are some useful commands:
 ```
 sudo docker ps  # list all running containers
 sudo docker exec -it container_name /bin/bash  # enter the container through an interactive shell
-sudo docker logs -f container_name  # watch the logs of a container
+sudo docker start container_name  # start an exited container in the background
+sudo docker logs -f container_name  # watch the logs of a container running in the background
 sudo docker container kill container_id  # kill a running container by its id
 sudo docker container ls -a  # list all containers
 sudo docker container rm container_id  # remove a container by its id

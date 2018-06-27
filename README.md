@@ -35,6 +35,7 @@ sudo docker run --name nodejs-kafka-producer -v ${CURRENT_FOLDER}:/usr/local/app
 To remove any containers or images, here are some useful commands:
 
 ```
+sudo docker ps  # list all running containers
 sudo docker exec -it container_name /bin/bash  # enter the container through an interactive shell
 sudo docker logs -f container_name  # watch the logs of a container
 sudo docker container kill container_id  # kill a running container by its id

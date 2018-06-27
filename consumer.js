@@ -44,7 +44,10 @@ consumer.on('event.error', function (err) {
 consumer.on('event.log', function (log) {
   console.log(log);
 });
-consumer.connect();
+consumer.connect({'timeout': 10000}, (err, metadata) => {
+  console.log(metadata);
+  console.error(err);
+});
 
 setTimeout(function () {
   consumer.disconnect();

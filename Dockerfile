@@ -9,7 +9,7 @@ RUN apk --no-cache add \
       lz4-dev \
       musl-dev \
       cyrus-sasl-dev \
-      openssl-dev \
+      libressl-dev \
       make \
       python
 
